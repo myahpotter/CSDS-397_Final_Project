@@ -1,4 +1,4 @@
--- ALTER TABLE source."streams_source" ADD COLUMN Featured_Artist VARCHAR(100);
+ALTER TABLE source."streams_source" ADD COLUMN Featured_Artist VARCHAR(100);
 -- ALTER TABLE streams_staging."songs" ADD COLUMN DebutDate DATE;
 
 -- Typecasting Date Column

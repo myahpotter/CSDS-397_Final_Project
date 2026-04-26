@@ -1,3 +1,7 @@
+DROP TABLE IF EXISTS streams_staging.songs, streams_staging.artists, streams_staging.features,
+streams_staging.entries CASCADE;
+
+
 -- Creating Songs, Parent_Labels, Labels, Artists, and Features Tables 
 -- Songs has the debut rank, debut peak, debut date, and max weeks in charts 
 CREATE TABLE IF NOT EXISTS streams_staging."songs"
