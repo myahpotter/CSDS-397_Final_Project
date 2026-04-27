@@ -28,8 +28,10 @@ billboard_analysis_dag = DAG(
 
 def ingest_billboard_data():
 
-    hook = PostgresHook(postgres_conn_id='my_postgres')
-    engine = hook.get_sqlalchemy_engine()
+    username = os.environ.get('DB_USERNAME')
+    password = os.environ.get('DB_PASSWORD')
+    host = os.environ.get('DB_HOST')
+    dbname = os.environ.get('DB_NAME')
 
     kaggle.api.authenticate()
 
@@ -64,7 +66,7 @@ weekly_ingestion = PythonOperator(
 # -------------------------
 cleaning_new_entries = SQLExecuteQueryOperator(
     task_id='cleaning_new_entries',
-    sql="""
+    sql=r"""
     -- Trimming Quotes from Artist Names
     UPDATE source."streams_source"
     SET 
