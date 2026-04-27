@@ -7,6 +7,9 @@ import billboard
 import re
 import kaggle
 import os
+import psycopg2
+from sqlalchemy import create_engine
+from sqlalchemy import text
 from psycopg2.extras import execute_batch
 
 # -------------------------
