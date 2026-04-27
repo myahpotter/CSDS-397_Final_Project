@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 import billboard
 import re
 import kaggle
+import os
 from psycopg2.extras import execute_batch
 
 # -------------------------
@@ -41,6 +42,8 @@ def ingest_billboard_data():
         file_name='streaming.csv',
         path='/tmp'
     )
+
+    engine = create_engine(f"postgresql+psycopg2://{username}:{password}@{host}:5432/{dbname}")
 
     with engine.connect() as conn:
         result = conn.execute(text("SELECT MAX(date) FROM source.streams_source"))
