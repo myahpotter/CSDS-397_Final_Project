@@ -5,6 +5,7 @@ from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 import billboard
 import re
+import kaggle
 from psycopg2.extras import execute_batch
 
 # -------------------------
